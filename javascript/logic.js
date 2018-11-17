@@ -1,15 +1,3 @@
-// const search = (event) => {
-//     event.preventDefault();
-//     const pokenumber = document.getElementById("pokeInput").value;
-//     const baseURL = "https://pokeapi.co/api/v2/pokemon/";
-//     $.get(baseURL + pokenumber, (pokemon) => {
-//       document.getElementById("textName").innerHTML = pokemon.name;
-//       document.getElementById("sprite").src = pokemon.sprites.front_default;
-//     });
-//     console.log(pokenumber);
-//   }
-//   document.getElementById("pokeform").addEventListener('submit', search);
-
   var pokeToSearch
 
   $("#goButton").on("click", function(e){
@@ -21,7 +9,27 @@
     }).then(function(response) {
         console.log(response);
         
-        $("#textName").text(response.name)
+        $("#textName").html(
+            "<h3>"+response.name+"</h3>"+
+            "<p>#"+response.id+"</p>"
+            )
         $("#sprite").attr("src", response.sprites.front_default)
+
+        $("#button-2").on("click", function(){
+            $("#textName").empty()
+            $("#textName").append("<h3>"+response.name+"</h3>")
+            for(var i = 0; i < response.types.length; i++){
+                var typeSpan = $("<p>"+response.types[i].type.name+"</p>")
+                $("#textName").append(typeSpan)
+            }
+        })
+        $("#button-4").on("click", function(){
+            $("#textName").empty()
+            $("#textName").append("<h3>"+response.name+"</h3>")
+            for(var i = 0; i < 5; i++){
+                var moveSpan = $("<p>"+response.moves[i].move.name+"</p>")
+                $("#textName").append(moveSpan)
+            }
+        })
     });
   })
