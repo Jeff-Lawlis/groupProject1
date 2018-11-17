@@ -129,6 +129,72 @@ border: 4px solid black;
     outline: none;
 }
 
+#button-11, #button-12 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:20%;
+    height:70px;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top:100px;
+}
+
+#button-15 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:20%;
+    height:70px;
+    border-radius:50%;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top:100px;
+    margin-left:200px;
+}
+
+#button-13  {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:25%;
+    height:20px;
+    
+    border: 4px solid black;
+    margin-top:80px;
+    margin-right:100px;
+    Margin-left:350px;
+   
+}
+
+#button-14 {
+    margin-top:-14px;
+    margin-left:150px;
+    border: 4px solid black;
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:20%;
+    height:20px;
+    
+}
+
+#button-16 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:40%;
+    height:70px;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top: 150px;
+}
+
+#button-17 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:40%;
+    height:70px;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top:-70px;
+    margin-left: 350px;
+}
 /* media queries */
 @media only screen and (min-width: 769) and (max-width: 980px) {
     #container {
