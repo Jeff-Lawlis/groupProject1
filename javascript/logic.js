@@ -12,7 +12,7 @@
 
   var pokeToSearch
 
-
+// Displays search results
 $("#goButton").on("click", function(e){
       e.preventDefault()
       pokeToSearch = $("#pokeInput").val()
@@ -46,7 +46,7 @@ $("#goButton").on("click", function(e){
   })
 
 
-//This isn't firing for some reason
+// Displays sprite, deletes search results
 $("#pokeimage").on('click', '.listItem', function(){
     var pokeDisplay = this.innerHTML
     console.log(pokeDisplay)
