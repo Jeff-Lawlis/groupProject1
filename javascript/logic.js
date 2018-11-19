@@ -1,26 +1,14 @@
-// const search = (event) => {
-//     event.preventDefault();
-//     const pokenumber = document.getElementById("pokeInput").value;
-//     const baseURL = "https://pokeapi.co/api/v2/pokemon/";
-//     $.get(baseURL + pokenumber, (pokemon) => {
-//       document.getElementById("textName").innerHTML = pokemon.name;
-//       document.getElementById("sprite").src = pokemon.sprites.front_default;
-//     });
-//     console.log(pokenumber);
-//   }
-//   document.getElementById("pokeform").addEventListener('submit', search);
-
   var pokeToSearch
+  var pokeCurrent
 
 // Displays search results
 $("#goButton").on("click", function(e){
       e.preventDefault()
-      pokeToSearch = $("#pokeInput").val()
+      pokeToSearch = $("#pokeInput").val().trim()
     $.ajax({
         url: "https://pokeapi.co/api/v2/pokemon-species/",
         method: "GET"
     }).then(function(response) {
-
         var searchList = document.createElement('div');
             searchList.id = 'searchList';
             searchList.className = 'info-scroll';
@@ -56,6 +44,7 @@ $("#pokeimage").on('click', '.listItem', function(){
     }).then(function(response) {
         console.log(response);
         
+        pokeCurrent = response
         $("#textName").text(response.name)
 
         var sprite = document.createElement('img')
@@ -65,4 +54,28 @@ $("#pokeimage").on('click', '.listItem', function(){
         $('#pokeimage').append(sprite);
 
     })   
+})
+
+// Displays name/type for current pokemon
+$("#button-2").on("click", function(){
+    if(pokeCurrent !== ''){
+        $("#textName").empty()
+        $("#textName").append("<h3>"+pokeCurrent.name+"</h3>")
+        for(var i = 0; i < pokeCurrent.types.length; i++){
+            var typeSpan = $("<p>"+pokeCurrent.types[i].type.name+"</p>")
+            $("#textName").append(typeSpan)
+        }
+    }
+})
+
+// Displays moves for current pokemon
+$("#button-4").on("click", function(){
+    if(pokeCurrent !== ''){
+        $("#textName").empty()
+        $("#textName").append("<h3>"+pokeCurrent.name+"</h3>")
+        for(var i = 0; i < 5; i++){
+            var moveSpan = $("<p>"+pokeCurrent.moves[i].move.name+"</p>")
+            $("#textName").append(moveSpan)
+        }
+    }
 })
