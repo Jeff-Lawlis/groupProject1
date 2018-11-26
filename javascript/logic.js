@@ -148,7 +148,7 @@ $("#button-15").on("click", function() {
         var audio = document.getElementById('audio');
         if (audio.paused) {
             audio.play();
-        }else{
+        } else {
             audio.pause();
             audio.currentTime = 0
         }
