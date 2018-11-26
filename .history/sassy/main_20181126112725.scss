@@ -1,0 +1,17 @@
+  $colors {
+    bg: #FB1010;
+  }
+  
+  body, html {
+      height: 100%;  
+  }
+
+  body {
+    font-family: "Press Start 2P", cursive;
+    margin: 0;
+
+    .container {
+        clip-path: polygon(23% 0, 100% 0, 100% 100%, 0 100%, 0 17%);
+
+    }
+  }
