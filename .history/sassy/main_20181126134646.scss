@@ -1,0 +1,269 @@
+$colors: (
+    bg: #FB1010,
+    screen: #49514F,
+
+  );
+
+  @function color($color-name) {
+      @return map-get($colors, $color-name)
+  }
+  
+  body, html {
+      height: 100%;  
+  }
+
+  body {
+    font-family: "Press Start 2P", cursive;
+    margin: 0;
+   
+    
+    
+    .container {
+        // -webkit-clip-path: polygon(61% 0, 100% 0, 100% 5%, 100% 24%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 16%, 20% 0);
+        // clip-path: polygon(61% 0, 100% 0, 100% 5%, 100% 24%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 16%, 20% 0);
+        background-color: color(bg);
+        width: 100%;
+        height: 100%;
+        // position: absolute;
+        z-index: -1;
+        display: flex;
+        margin: auto;
+    }
+  }
+
+
+
+
+  /* Left side of pokedex */
+
+   /* div containing image */
+   #pokeimage {
+    width:80%;
+    height:50%;
+    border: solid 20px #DAE3E0;
+    box-shadow: 1px 1px 5px grey;
+    background-color:screen;
+    border-radius:30px;
+    text-align:center;
+    padding: 5px;
+    color:black;
+   
+    
+    /* the called image */
+        #sprite {
+            z-index: 100;
+            height: 100%;
+            position:relative;
+            margin: auto;
+            image-rendering: pixelated; /* keeps image from getting blurry */
+            flex: 1 1 auto; /*flex grow, flex shrink, flex basis (resizing)*/
+            
+        }
+    }
+
+    
+    /* Search list items */
+    .listItem {
+        border: 20px, 0 solid #6d7876;
+        background-color:#6d7876;
+        padding: 0;
+    }
+    
+    
+    /* form that contains go button and user input */
+    #pokeform {
+        margin: 0 auto;
+        margin-right:200px;
+        margin-left:150px;
+        margin-top:100px;
+        width:20%;
+        flex: 1 1 auto;
+        align-self: flex-start;
+        border-radius: 50%;
+        
+    }
+    
+    /* go button to call pokemon */
+    #goButton {
+        box-shadow: 1px 1px 15px 1px #045B41 inset;
+        background-color:#067855;
+         margin-top:-275px; 
+        margin-left:-240px;
+        width:15%;
+        height:15%;
+        border-radius: 50%;
+        // position: absolute;
+        border: 4px solid black;
+        outline:none;
+        
+    
+    }
+    
+    #goButton:hover {
+        background-color: #459E80;
+        outline: none;
+    }
+    
+    #goButton:active {
+        background-color: #459E80;
+        box-shadow: 0 2px black;
+        transform: translateY(4px);
+        outline: none;
+    }
+    
+    /* User input */
+    #pokeInput {
+        position:relative;
+        height: 80px;
+        width:275px;
+        margin-left: -150%;
+        margin-top:130%;
+        background-color: #91CDA7;
+        border: 4px solid black;
+        text-align: center;
+    }
+    
+    /* Right side of pokedex */
+
+
+    
+    /* div that contains the information */
+    #pokename {
+        width:100%;
+        height:40%;
+        border: solid 10px black;
+        text-align:center;
+        color:white;
+        box-shadow: 1px 1px 5px grey;
+        background-color:#49514F;
+        padding:20px;
+        font-size: 20px;
+        overflow:hidden;
+    }
+    
+    /* Blue buttons */
+    #button-1, #button-2, #button-3, #button-4, #button-5, #button-6, #button-7, #button-8, #button-9, #button-10 {
+    width:20%;
+    height:70px;
+    box-shadow: 1px 1px 5px #80D4F9 inset;
+    background-color:#3EC0F7;
+    display: inline-block;
+    position:relative;
+    border: 4px solid black;
+    order:1;
+    
+    }
+    
+    #button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover {
+        background-color: #80D4F9;
+        outline: none;
+    }
+    
+    #button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active, #button-6:active, #button-7:active, #button-8:active, #button-9:active, #button-10:active {
+        background-color: #80D4F9;
+        box-shadow: 0 2px black;
+        transform: translateY(2px);
+        outline: none;
+    }
+    
+    #button-11, #button-12 {
+        box-shadow: 1px 1px 5px inset;
+        position:relative;
+        width:20%;
+        height:70px;
+        border: 4px solid black;
+        margin-top:100px;
+        justify-content: space-around;
+        align-content: space-around;
+        
+    }
+    
+    #button-15 {
+        box-shadow: 1px 1px 5px inset;
+        // position:relative;
+        width:20%;
+        // height:70px;
+        // border-radius:50%;
+        display: inline-flex;
+        border: 4px solid black;
+        // margin-top:100px;
+        // margin-left:200px;
+        order:2;
+    }
+    
+    // light under blue buttons
+    #button-13  {
+        box-shadow: 1px 1px 5px inset;
+        // position:relative;
+        width:50px;
+        height:20px;
+        display:inline-flex;
+        border: 4px solid black;
+        // margin-top:80px;
+        // margin-right:100px;
+        // Margin-left:350px;
+        order:2;
+       
+    }
+    //second light
+    #button-14 {
+        margin-top:-14px;
+        margin-left:150px;
+        border: 4px solid black;
+        box-shadow: 1px 1px 5px inset;
+        display: inline-flex;
+        width:50px;
+        height:20px;
+        
+    }
+    
+    #button-16 {
+        box-shadow: 1px 1px 5px inset;
+        position:relative;
+        width:40%;
+        height:70px;
+        /*display: inline-block;*/
+        border: 4px solid black;
+        margin-top: 150px;
+    }
+    
+    #button-17 {
+        box-shadow: 1px 1px 5px inset;
+        position:relative;
+        width:40%;
+        height:70px;
+        /*display: inline-block;*/
+        border: 4px solid black;
+        margin-top:-70px;
+        margin-left: 350px;
+    }
+    /* media queries */
+    @media only screen and (min-width: 769) and (max-width: 980px) {
+        #container {
+            width:80%;
+        }
+    }
+    
+    @media only screen and (min-width: 641) and (max-width: 768px) {
+        
+    
+        #container {
+            width: 100%;
+        }
+    
+    }
+    
+    @media only screen and (max-width: 640px) {
+        #container {
+            width: 100%;
+        }
+    }
+    
+    /* Javascript stuff */
+    .info-scroll{
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        }

@@ -1,0 +1,27 @@
+  $colors: (
+    bg: #FB1010,
+
+  );
+
+  @function color($color-name) {
+      retur
+  }
+  
+  body, html {
+      height: 100%;  
+  }
+
+  body {
+    font-family: "Press Start 2P", cursive;
+    margin: 0;
+    
+    .container {
+        -webkit-clip-path: polygon(39% 0, 100% 0, 100% 100%, 0 100%, 0 24%);
+        clip-path: polygon(39% 0, 100% 0, 100% 100%, 0 100%, 0 24%);
+        background-color: map-key($colors, bg);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+  }
