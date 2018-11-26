@@ -22,9 +22,7 @@
 
             <!-- Where the image shows -->
                 <div class="col-6">
-                       <div id="pokeimage">
-                        <img id="sprite">
-                    </div>
+                       <div id="pokeimage"></div>
                     <br><br>
                 <!-- User input and go button -->
                 <form id="pokeform">
@@ -38,9 +36,7 @@
            
             <!-- Right side information -->
             <div class="col-6">
-                    <div id="pokename">
-                    <div id="textName"></div>
-                    </div>
+                    <div id="pokename"></div>
                     <br><br>
 
                     <!-- Blue buttons -->
@@ -48,7 +44,7 @@
                     <button class="blue" type=submit id="button-1"></button>
                     <button class="blue" type=submit  id="button-2"></button>
                     <button class="blue" type=submit  id="button-3"></button>
-                    <button class="blue" type=submit  id="button-4"></button>
+                    <button class="blue" type=submit  id="button-4">Looks</button>
                     <button class="blue" type=submit  id="button-5"></button>
                 </div>
                     <div class="row">
@@ -59,13 +55,13 @@
                     <button class="blue" type=submit  id="button-10"></button>
                 </div>
                 <div class="row">
-                <button id="button-13"></button>
-                <button id="button-14"></button>
+                    <input id="button-13"type="button" value="PLAY" onclick="play()"><audio id="audio" src="assets/audio/Pokemon.mp3" ></audio>
+                <input id= "button-14"type="button" value="PAUSE" onclick="play()"><audio id="audio" src="assets/audio/Pokemon.mp3" ></audio>
                 </div>
                 <div class="row">
                 <button id="button-11"></button>
                 <button id="button-12"></button>
-                <button id="button-15"></button>
+                <button id="button-15">GIF</button>
                 </div>
                 <div class="row">
                 <button id="button-16"></button>
