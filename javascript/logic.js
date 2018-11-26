@@ -112,3 +112,44 @@ $("#button-4").on("click", function(){
     $("#pokename").append("<p>Color: "+toUpper(speciesCurrent.color.name)+"</p>")
     $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
 })
+
+$("#button-15").on("click", function() {
+    $("#pokeimage").empty();
+       //var pokeGif = $("#pokeInput").val().trim();
+        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag=pokemon";
+    
+        //
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+    
+        //
+          .then(function(response) {
+           
+            var imageUrl = response.data.image_original_url;
+    
+            //
+            
+        
+            var pokeGif = $("<img>");
+    
+            //
+            pokeGif.attr("src", imageUrl);
+            pokeGif.attr("alt", "pokemon GIF image");
+    
+            //
+            $("#pokeimage").prepend(pokeGif);
+            console.log(pokeGif);
+          });
+      });
+
+      function play() {
+        var audio = document.getElementById('audio');
+        if (audio.paused) {
+            audio.play();
+        }else{
+            audio.pause();
+            audio.currentTime = 0
+        }
+    }
