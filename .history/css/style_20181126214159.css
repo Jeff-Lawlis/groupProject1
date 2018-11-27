@@ -15,17 +15,13 @@ body {
 /* Left side of pokedex */
 
 /* the called image */
-#sprite {
+/* #sprite {
 z-index: 100;
 height: 100%;
 position:relative;
 margin: auto;
 image-rendering: pixelated; /* keeps image from getting blurry */
-<<<<<<< reset
-}
-=======
 /* } */ 
->>>>>>> local
 
 /* Search list items */
 .listItem {

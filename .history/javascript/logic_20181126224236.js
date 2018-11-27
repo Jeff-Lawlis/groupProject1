@@ -91,7 +91,6 @@ $("#button-1").on("click", function(){
     $("#pokename").empty()
     $("#pokename").append("<h3>"+toUpper(pokeCurrent.name)+"</h3><br>")
     $("#pokename").append("<p>"+pokeCurrent.id+"</p>")
-    responsiveVoice.speak(pokeCurrent.name.toString() + "Number" + pokeCurrent.id.toString())
 })
 
 $("#button-2").on("click", function(){
@@ -99,14 +98,12 @@ $("#button-2").on("click", function(){
     for(var i = 0; i < pokeCurrent.types.length; i++){
         var typeSpan = $("<p>"+toUpper(pokeCurrent.types[i].type.name)+"</p>")
         $("#pokename").append(typeSpan)
-        responsiveVoice.speak("An" + pokeCurrent.types[i].type.name.toString() + "type")
     }
 })
 
 $("#button-3").on("click", function(){
     $("#pokename").empty()
     $("#pokename").append(speciesCurrent.flavor_text_entries.find(x => x.language.name === 'en').flavor_text)
-    responsiveVoice.speak(speciesCurrent.flavor_text_entries.find(x => x.language.name === 'en').flavor_text.toString())
 })
 
 $("#button-4").on("click", function(){
@@ -114,7 +111,7 @@ $("#button-4").on("click", function(){
     $("#pokename").append("<h5>Appearance</h5><br>")
     $("#pokename").append("<p>Color: "+toUpper(speciesCurrent.color.name)+"</p>")
     $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
-    responsiveVoice.speak("Its appearance is the color" + speciesCurrent.color.name.toString() + "and the shape" + speciesCurrent.shape.name.toString())
+    responsiveVoice.speak(speciesCurrent.shape.name);
 })
 
 $("#button-15").on("click", function() {
