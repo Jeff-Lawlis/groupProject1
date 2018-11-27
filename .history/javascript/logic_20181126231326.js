@@ -114,7 +114,7 @@ $("#button-4").on("click", function(){
     $("#pokename").append("<h5>Appearance</h5><br>")
     $("#pokename").append("<p>Color: "+toUpper(speciesCurrent.color.name)+"</p>")
     $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
-    responsiveVoice.speak("Its appearance is the color" + speciesCurrent.color.name.toString() + "and the shape" + speciesCurrent.shape.name.toString())
+    responsiveVoice.speak("Color" + speciesCurrent.color.name.toString() + speciesCurrent.shape.name.toString())
 })
 
 $("#button-15").on("click", function() {
