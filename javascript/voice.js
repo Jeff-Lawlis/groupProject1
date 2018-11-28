@@ -3,7 +3,7 @@ Source From: https://code.responsivevoice.org/develop/examples/example2.html
 */
 
 var voicelist = responsiveVoice.getVoices();
-console.log(voicelist);
+// console.log(voicelist);
 
 responsiveVoice.setDefaultVoice("UK English Male", {pitch: 1});
 
