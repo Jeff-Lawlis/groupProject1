@@ -18,8 +18,18 @@ function shuffleArray(array) {
         array[j] = temp;
     }
 }
-function languageFilter(array){
+function isVowel(char)
+{   if (char.length == 1)
+  { var vowels = new Array('a','e','i','o','u');
+    var isVowel = false;
+    for(e in vowels){
+        if(vowels[e] == char){
+            isVowel = true;
+        }
+    }
 
+    return isVowel;
+  }
 }
 // Displays search results
 $("#goButton").on("click", function(e){
@@ -90,8 +100,8 @@ $("#pokeimage").on('click', '.listItem', function(){
 $("#button-1").on("click", function(){
     $("#pokename").empty()
     $("#pokename").append("<h3>"+toUpper(pokeCurrent.name)+"</h3><br>")
-    $("#pokename").append("<p>"+pokeCurrent.id+"</p>")
-    responsiveVoice.speak(pokeCurrent.name.toString() + "Number" + pokeCurrent.id.toString())
+    $("#pokename").append("<p>Pokedex #"+pokeCurrent.id+"</p>")
+    responsiveVoice.speak(pokeCurrent.name.toString() + ", pokedex number" + pokeCurrent.id.toString())
 })
 
 $("#button-2").on("click", function(){
@@ -99,7 +109,11 @@ $("#button-2").on("click", function(){
     for(var i = 0; i < pokeCurrent.types.length; i++){
         var typeSpan = $("<p>"+toUpper(pokeCurrent.types[i].type.name)+"</p>")
         $("#pokename").append(typeSpan)
-        responsiveVoice.speak("An" + pokeCurrent.types[i].type.name.toString() + "type")
+        if(isVowel(pokeCurrent.types[i].type.name.toString().charAt(0))===true){
+            responsiveVoice.speak("An " + pokeCurrent.types[i].type.name.toString() + " type")
+        }else{
+            responsiveVoice.speak("A " + pokeCurrent.types[i].type.name.toString() + " type")
+        }
     }
 })
 
@@ -114,13 +128,13 @@ $("#button-4").on("click", function(){
     $("#pokename").append("<h5>Appearance</h5><br>")
     $("#pokename").append("<p>Color: "+toUpper(speciesCurrent.color.name)+"</p>")
     $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
-    responsiveVoice.speak("Its appearance is the color" + speciesCurrent.color.name.toString() + "and the shape" + speciesCurrent.shape.name.toString())
+    responsiveVoice.speak(pokeCurrent.name.toString() +"'s appearance is the color " + speciesCurrent.color.name.toString() + ", and the shape " + speciesCurrent.shape.name.toString())
 })
 
 $("#button-15").on("click", function() {
     $("#pokeimage").empty();
        //var pokeGif = $("#pokeInput").val().trim();
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag=pokemon";
+        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag="+pokeCurrent.name;
     
         //
         $.ajax({
