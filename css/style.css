@@ -12,6 +12,10 @@ body {
     width:100%;
 } 
 
+button {
+    font-size: .9rem
+}
+
 /* Left side of pokedex */
 
 /* the called image */
