@@ -132,6 +132,7 @@ $("#button-4").on("click", function(){
 })
 
 $("#button-5").on("click", function(){
+    var evolList = []
     $("#pokename").empty()
     $("#pokename").append("<h5>Evolution Tree</h5><br>")
     $.ajax({
@@ -140,51 +141,50 @@ $("#button-5").on("click", function(){
     }).then(function(response) {
         var chain = response.chain
         $("#pokename").append("<p>"+toUpper(chain.species.name)+"</p>")
+        evolList.push(chain.species.name)
         while(typeof chain.evolves_to[0] != 'undefined'){
             $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
+            evolList.push(chain.evolves_to[0].species.name)
             chain = chain.evolves_to[0]
+            console.log(evolList)
         }
     })
+    // responsiveVoice.speak(pokeCurrent.name.toString() +"'s evolutions are " + evolList.toString())
 })
 
 $("#button-15").on("click", function() {
     $("#pokeimage").empty();
-       //var pokeGif = $("#pokeInput").val().trim();
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag="+pokeCurrent.name;
-    
-        //
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        })
-    
-        //
-          .then(function(response) {
-           
-            var imageUrl = response.data.image_original_url;
-    
-            //
-            
-        
-            var pokeGif = $("<img>");
-    
-            //
-            pokeGif.attr("src", imageUrl);
-            pokeGif.attr("alt", "pokemon GIF image");
-            pokeGif.attr('id','gifImage')
-    
-            //
-            $("#pokeimage").prepend(pokeGif);
-            console.log(pokeGif);
-          });
-      });
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag="+pokeCurrent.name;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
 
-      function play() {
-        var audio = document.getElementById('audio');
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-            audio.currentTime = 0
-        }
+    .then(function(response) {
+    
+    var imageUrl = response.data.image_original_url;
+
+    var pokeGif = $("<img>");
+
+    pokeGif.attr("src", imageUrl);
+    pokeGif.attr("alt", "pokemon GIF image");
+    pokeGif.attr('id','gifImage')
+
+    $("#pokeimage").prepend(pokeGif);
+    console.log(pokeGif);
+    });
+});
+
+function play() {
+    var audio = document.getElementById('audio');
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
     }
+}
+
+function stop(){
+    audio.pause();
+    audio.currentTime = 0
+}
