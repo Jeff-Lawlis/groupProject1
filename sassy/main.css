@@ -81,6 +81,7 @@ body .container {
 }
 
 /* go button to call pokemon */
+
 #goButton {
   -webkit-box-shadow: 1px 1px 15px 1px #045B41 inset;
           box-shadow: 1px 1px 15px 1px #045B41 inset;

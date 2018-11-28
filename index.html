@@ -22,21 +22,30 @@
             <!-- Left side information -->
 
             <!-- Where the image shows -->
-                <div class="col-6">
-                       <div id="pokeimage"></div>
+                <div class="col-6 left-column">
+                    <div id="pokeimage"></div>
                     <br><br>
                 <!-- User input and go button -->
-                <form id="pokeform">
-                <input id="pokeInput" placeholder="Name of Pokemon!"/>
+                <div class="d-pad-container">
+                    <img src="assets/images/d-pad.png" id="d-pad" style="height: 100px; width: 100px;">
+                    <button class="d-pad-button" id="d-pad-up"></button>
+                    <button class="d-pad-button" id="d-pad-right"></button>
+                    <button class="d-pad-button" id="d-pad-down"></button>
+                    <button class="d-pad-button" id="d-pad-left"></button>
+                </div>
+                    <form id="pokeform">
+                        
+                        
+                        <input id="pokeInput" placeholder="Name of Pokemon!"/>
+                        
+                        <button id ="goButton"type=submit>GO!</button>
+                    </form>
                 
-                <button id ="goButton"type=submit>GO!</button>
-              </form>
-              
-              </div>
+                </div>
               
            
             <!-- Right side information -->
-            <div class="col-6">
+            <div class="col-6 right-column">
                 <div id="pokename"></div>
 
                 <!-- tiny lights -->
@@ -63,10 +72,15 @@
                     
                     <button id="button-15">GIF</button>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
+                    <button id="button-11"></button>
+                    <button id="button-12"></button>
+                </div> -->
+                <!-- <div class="row">
+
                     <button id="button-16"></button>
                     <button id="button-17"></button>
-                </div>
+                </div> -->
             
         </div>
     </div>

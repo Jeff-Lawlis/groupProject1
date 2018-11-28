@@ -130,6 +130,25 @@ $("#button-4").on("click", function(){
     $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
     responsiveVoice.speak(pokeCurrent.name.toString() +"'s appearance is the color " + speciesCurrent.color.name.toString() + ", and the shape " + speciesCurrent.shape.name.toString())
 })
+$("#button-5").on("click", function(){
+    console.log(pokeCurrent.species.url);
+    
+    $.ajax({
+        url: pokeCurrent.species.url,
+        method: "GET"
+    }).then(function(response){
+        $.ajax({
+            url: response.evolution_chain.url,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+            
+            console.log(response.chain.species.name);
+            
+        })
+        
+    })
+})
 
 $("#button-5").on("click", function(){
     var evolList = []
