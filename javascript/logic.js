@@ -131,6 +131,22 @@ $("#button-4").on("click", function(){
     responsiveVoice.speak(pokeCurrent.name.toString() +"'s appearance is the color " + speciesCurrent.color.name.toString() + ", and the shape " + speciesCurrent.shape.name.toString())
 })
 
+$("#button-5").on("click", function(){
+    $("#pokename").empty()
+    $("#pokename").append("<h5>Evolution Tree</h5><br>")
+    $.ajax({
+        url: speciesCurrent.evolution_chain.url,
+        method: "GET"
+    }).then(function(response) {
+        var chain = response.chain
+        $("#pokename").append("<p>"+toUpper(chain.species.name)+"</p>")
+        while(typeof chain.evolves_to[0] != 'undefined'){
+            $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
+            chain = chain.evolves_to[0]
+        }
+    })
+})
+
 $("#button-15").on("click", function() {
     $("#pokeimage").empty();
        //var pokeGif = $("#pokeInput").val().trim();
