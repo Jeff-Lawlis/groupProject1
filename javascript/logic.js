@@ -155,6 +155,7 @@ $("#button-15").on("click", function() {
             //
             pokeGif.attr("src", imageUrl);
             pokeGif.attr("alt", "pokemon GIF image");
+            pokeGif.attr('id','gifImage')
     
             //
             $("#pokeimage").prepend(pokeGif);
