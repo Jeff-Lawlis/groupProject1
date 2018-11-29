@@ -2,6 +2,8 @@
   var pokeCurrent
   var speciesCurrent
 
+  responsiveVoice.setDefaultVoice("UK English Male", {pitch: 1});
+
 // Use this to capitalize strings
 function toUpper(str) {
 return str.toLowerCase().split(' ').map(function(word) {

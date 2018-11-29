@@ -15,16 +15,16 @@
     <title>Pokedex Page</title>
 </head>
 <body>
-        <div class="container">
-            <!-- <br><br></br> -->
-            <div class="row">
+    <div class="container">
+        <!-- <br><br></br> -->
+        <div class="row" id='row-1'>
 
-            <!-- Left side information -->
+        <!-- Left side information -->
 
             <!-- Where the image shows -->
-                <div class="col-6 left-column">
-                    <div id="pokeimage"></div>
-                    <br><br>
+            <div class="col-6 left-column">
+                <div id="pokeimage"></div>
+                <br><br>
                 <!-- User input and go button -->
                 <div class="d-pad-container">
                     <img src="assets/images/d-pad.png" id="d-pad" style="height: 100px; width: 100px;">
@@ -33,17 +33,15 @@
                     <button class="d-pad-button" id="d-pad-down"></button>
                     <button class="d-pad-button" id="d-pad-left"></button>
                 </div>
-                    <form id="pokeform">
-                        
-                        
-                        <input id="pokeInput" placeholder="Name of Pokemon!"/>
-                        
-                        <button id ="goButton"type=submit>GO!</button>
-                    </form>
-                
-                </div>
-              
-           
+                <form id="pokeform">
+                    
+                    
+                    <input id="pokeInput" placeholder="Name of Pokemon!"/>
+                    
+                    <button id ="goButton"type=submit>GO!</button>
+                </form>
+            </div>
+            
             <!-- Right side information -->
             <div class="col-6 right-column">
                 <div id="pokename"></div>
@@ -64,33 +62,30 @@
                     <button class="blue" type=submit  id="button-5">Evolve Tree</button>
                 </div>
 
-                
-               <!-- more buttons -->
+            
+            <!-- more buttons -->
                 <div class="row">
                     <input id="button-13"type="button" value="PLAY" onclick="play()"><audio id="audio" src="assets/audio/Pokemon.mp3" ></audio>
                     <input id= "button-14"type="button" value="STOP" onclick="stop()"><audio id="audio" src="assets/audio/Pokemon.mp3" ></audio>
                     
                     <button id="button-15">GIF</button>
                 </div>
-                <!-- <div class="row">
-                    <button id="button-11"></button>
-                    <button id="button-12"></button>
-                </div> -->
-                <!-- <div class="row">
+            <!-- <div class="row">
+                <button id="button-11"></button>
+                <button id="button-12"></button>
+            </div> -->
+            <!-- <div class="row">
 
-                    <button id="button-16"></button>
-                    <button id="button-17"></button>
-                </div> -->
-            
+                <button id="button-16"></button>
+                <button id="button-17"></button>
+            </div> -->
+        
+            </div>
         </div>
     </div>
-</div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
-            <script src="./javascript/logic.js"></script>
-            <script src ="./javascript/voice.js"></script>
-        </body>
-<script>
-  
-</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="./javascript/logic.js"></script>
+</body>
 </html>

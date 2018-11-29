@@ -1,37 +1,48 @@
- body, html {
-font-family: "Press Start 2P", cursive;
-}
-
-body { 
-    background-color:#FB1010; 
+html{
+    width:100%;
     height:100%;
+}
+body {
+    width:100%;
+    height:100%;
+    padding:20px;
+    background-color:#FB1010; 
+    font-family: "Press Start 2P", cursive;
 }
 
 .container {
     height:100%;
-    width:100%;
-    padding-top: 10px;
+    z-index: -1;
+    /* display: flex; */
+    margin:auto;
 } 
 
+#row-1{
+    height:100%;
+}
+
 button {
+    overflow: hidden;
     font-size: .9rem
 }
 
 /* Left side of pokedex */
 .left-column{
     border-right: 5px solid black;
+    /* margin-right: 20px; */
 }
 .right-column{
     border-left: 5px solid black;
+    /* margin-left: 20px; */
 }
 /* the called image */
 #sprite {
-z-index: 100;
-height: 100%;
-position:relative;
-margin: auto;
-image-rendering: pixelated; /* keeps image from getting blurry */
-width: 100%;
+    z-index: 100;
+    height: 100%;
+    position:relative;
+    margin: auto;
+    image-rendering: pixelated; /* keeps image from getting blurry */
+    flex: 1 1 auto; /*flex grow, flex shrink, flex basis (resizing)*/
 }
 
 /* Search list items */
@@ -43,15 +54,19 @@ width: 100%;
 
 /* div containing image */
 #pokeimage {
+    background-color:#49514F;
     width:80%;
     height:50%;
     border: solid 20px #DAE3E0;
     box-shadow: 1px 1px 5px grey;
-    background-color:#49514F;
+    background-color:screen;
     border-radius:30px;
     text-align:center;
     padding: 5px;
     color:black;
+    display: flex;
+    display: inline-block;
+    justify-content: center;
     }
 
 /* form that contains go button and user input */
@@ -70,6 +85,12 @@ width: 100%;
     height: 100px;
     width: 100px;
 }
+.d-pad-button{
+    height: 30px;
+    width: 30px;
+    padding:0;
+    margin:0;
+}
 #d-pad{
     position: absolute;
     left: 10px;
@@ -78,33 +99,25 @@ width: 100%;
     position: absolute;
     opacity: 0;
     top: 0;
-    left: 47%;
-    height: 25px;
-    width: 25px;
+    left: 45%;
 }
 #d-pad-down{
     position: absolute;
     opacity: 0;
     bottom: 0;
-    left: 47%;
-    height: 25px;
-    width: 25px;
+    left: 45%;
 }
 #d-pad-left{
     position: absolute;
     opacity: 0;
-    bottom: 40%;
-    left: 15px;
-    height: 25px;
-    width: 25px;
+    bottom: 38%;
+    left: 12px;
 }
 #d-pad-right{
     position: absolute;
     opacity: 0;
-    bottom: 40%;
-    right: -5px;
-    height: 25px;
-    width: 25px;
+    bottom: 38%;
+    right: -10px;
 }
 #goButton {
     box-shadow: 1px 1px 15px 1px #045B41 inset;
@@ -163,7 +176,7 @@ width: 100%;
 }
 
 /* Blue buttons */
-#button-1, #button-2, #button-3, #button-4, #button-5, #button-6, #button-7, #button-8, #button-9, #button-10 {
+.blue {
 width:20%;
 height:70px;
 box-shadow: 1px 1px 5px #80D4F9 inset;
@@ -174,12 +187,11 @@ border: 4px solid black;
 
 }
 
-#button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover {
+.blue:hover{
     background-color: #80D4F9;
     outline: none;
 }
-
-#button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active, #button-6:active, #button-7:active, #button-8:active, #button-9:active, #button-10:active {
+.blue:active{
     background-color: #80D4F9;
     box-shadow: 0 2px black;
     transform: translateY(2px);
@@ -283,6 +295,7 @@ img {
     width:100%;
     height:100%;
 }
+
 /* media queries */
 @media only screen and (min-width: 769) and (max-width: 980px) {
     #container {
