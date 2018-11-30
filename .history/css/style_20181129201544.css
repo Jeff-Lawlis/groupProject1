@@ -1,12 +1,7 @@
-body, html {
+ body, html {
 font-family: "Press Start 2P", cursive;
 }
 
-p{
-    max-width: 324px;
-    margin-left: auto;
-    margin-right: auto;
-}
 body { 
     background-color:#FB1010; 
     height:100%;
@@ -176,9 +171,9 @@ width: 100%;
     background-color:#49514F;
     padding:20px;
     font-size: 20px;
-    object-fit: contain;
-    overflow-y: scroll;
-    overflow-x: hidden; 
+    /* object-fit: contain; */
+    overflow:hidden;
+    
 }
 
 /* Blue buttons */
@@ -281,7 +276,14 @@ outline: none;
     background-image: linear-gradient(lightblue, blue);
     flex: 0 1 auto;
     outline:none;
-  }
+    animation: blinker 1s linear infinite;
+      }
+      
+      @keyframes blinker {
+        50% {
+          color: 0;
+        }
+      }
 
 
 

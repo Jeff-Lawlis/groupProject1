@@ -1,12 +1,7 @@
-body, html {
+ body, html {
 font-family: "Press Start 2P", cursive;
 }
 
-p{
-    max-width: 324px;
-    margin-left: auto;
-    margin-right: auto;
-}
 body { 
     background-color:#FB1010; 
     height:100%;
@@ -65,7 +60,6 @@ width: 100%;
     color:black;
     object-fit: contain;
     overflow:hidden;
-    cursor: grab;
     }
 
 /* form that contains go button and user input */
@@ -177,8 +171,8 @@ width: 100%;
     padding:20px;
     font-size: 20px;
     object-fit: contain;
-    overflow-y: scroll;
-    overflow-x: hidden; 
+    overflow:hidden;
+    
 }
 
 /* Blue buttons */
@@ -194,8 +188,7 @@ overflow:hidden;
 margin-top:5%;
 padding: 10px;
 text-align: center;
-background-image: linear-gradient(to bottom right,#78DEF7, #80D4F9 ,#3EC0F7, #18C9F6, #0ABBE8);
-outline: none;
+background-image: linear-gradient(to bottom right, #3EC0F7, #18C9F6);
 }
 
 #button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover {
@@ -231,7 +224,6 @@ outline: none;
     margin-left: auto;
     margin-top:5%;
     background-color: orange;
-    outline: none;
    
 }
 
@@ -262,13 +254,9 @@ outline: none;
     height:20px;
     color:black;
     background-color: green;
-    background-image: linear-gradient(lightgreen, green);
     flex: 0 1 auto;
-    outline:none;
    
 }
-
-
 
 #light-1 {
     box-shadow: 1px 1px 5px inset;
@@ -278,11 +266,8 @@ outline: none;
     border: 4px solid black;
     color:black;
     background-color: blue;
-    background-image: linear-gradient(lightblue, blue);
     flex: 0 1 auto;
-    outline:none;
-  }
-
+}
 
 
 #button-13, #button-14  {
