@@ -152,46 +152,30 @@ $("#button-4").on("click", function(){
         $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
     }
 })
+
 $("#button-5").on("click", function(){
     if(typeof speciesCurrent != "undefined"){
+        var evolList = ''
+        $("#pokename").empty()
+        $("#pokename").append("<h5>Evolution Tree</h5><br>")
         $.ajax({
-            url: pokeCurrent.species.url,
+            url: speciesCurrent.evolution_chain.url,
             method: "GET"
-        }).then(function(response){
-            $.ajax({
-                url: response.evolution_chain.url,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
-                
-                console.log(response.chain.species.name);
-                
-            })
+        }).then(function(response) {
+            var chain = response.chain
+            $("#pokename").append("<p>"+toUpper(chain.species.name)+"</p>")
+            evolList += chain.species.name+' '
+            while(typeof chain.evolves_to[0] != 'undefined'){
+                $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
+                evolList += chain.evolves_to[0].species.name+' '
+                chain = chain.evolves_to[0]
+                console.log(evolList)
+            }
+            responsiveVoice.speak(pokeCurrent.name.toString() +"'s evolutions are " + evolList)
         })
     }else{
         $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
     }
-})
-
-$("#button-5").on("click", function(){
-    var evolList = []
-    $("#pokename").empty()
-    $("#pokename").append("<h5>Evolution Tree</h5><br>")
-    $.ajax({
-        url: speciesCurrent.evolution_chain.url,
-        method: "GET"
-    }).then(function(response) {
-        var chain = response.chain
-        $("#pokename").append("<p>"+toUpper(chain.species.name)+"</p>")
-        evolList.push(chain.species.name)
-        while(typeof chain.evolves_to[0] != 'undefined'){
-            $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
-            evolList.push(chain.evolves_to[0].species.name)
-            chain = chain.evolves_to[0]
-            console.log(evolList)
-        }
-    })
-    // responsiveVoice.speak(pokeCurrent.name.toString() +"'s evolutions are " + evolList.toString())
 })
 
 $("#button-15").on("click", function() {
