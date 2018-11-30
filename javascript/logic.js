@@ -2,6 +2,9 @@
   var pokeCurrent
   var speciesCurrent
 
+  
+responsiveVoice.setDefaultVoice("UK English Male", {pitch: 1});
+
 // Use this to capitalize strings
 function toUpper(str) {
 return str.toLowerCase().split(' ').map(function(word) {
@@ -88,87 +91,91 @@ $("#pokeimage").on('click', '.listItem', function(){
         $('#pokeimage').empty()
         $('#pokeimage').append(sprite);
 
+        var ch = $('#sprite').height();
+        $('#sprite').css({'width':ch+'px'});
+
     })
     $.ajax({
         url: "https://pokeapi.co/api/v2/pokemon-species/"+pokeDisplay+'/',
         method: "GET"
     }).then(function(response) {
         speciesCurrent = response
-    }) 
+    })
 })
 
 $("#button-1").on("click", function(){
-    $("#pokename").empty()
-    $("#pokename").append("<h3>"+toUpper(pokeCurrent.name)+"</h3><br>")
-    $("#pokename").append("<p>Pokedex #"+pokeCurrent.id+"</p>")
-    responsiveVoice.speak(pokeCurrent.name.toString() + ", pokedex number" + pokeCurrent.id.toString())
+    if(typeof speciesCurrent != "undefined"){
+        $("#pokename").empty()
+        $("#pokename").append("<h3>"+toUpper(pokeCurrent.name)+"</h3><br>")
+        $("#pokename").append("<p>Pokedex #"+pokeCurrent.id+"</p>")
+        responsiveVoice.speak(pokeCurrent.name.toString() + ", pokedex number" + pokeCurrent.id.toString())
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
+    }
 })
 
 $("#button-2").on("click", function(){
     $("#pokename").empty()
-    for(var i = 0; i < pokeCurrent.types.length; i++){
-        var typeSpan = $("<p>"+toUpper(pokeCurrent.types[i].type.name)+"</p>")
-        $("#pokename").append(typeSpan)
-        if(isVowel(pokeCurrent.types[i].type.name.toString().charAt(0))===true){
-            responsiveVoice.speak("An " + pokeCurrent.types[i].type.name.toString() + " type")
-        }else{
-            responsiveVoice.speak("A " + pokeCurrent.types[i].type.name.toString() + " type")
+    if(typeof speciesCurrent != "undefined"){
+        for(var i = 0; i < pokeCurrent.types.length; i++){
+            var typeSpan = $("<p>"+toUpper(pokeCurrent.types[i].type.name)+"</p>")
+            $("#pokename").append(typeSpan)
+            if(isVowel(pokeCurrent.types[i].type.name.toString().charAt(0))===true){
+                responsiveVoice.speak("An " + pokeCurrent.types[i].type.name.toString() + " type")
+            }else{
+                responsiveVoice.speak("A " + pokeCurrent.types[i].type.name.toString() + " type")
+            }
         }
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
     }
 })
 
 $("#button-3").on("click", function(){
     $("#pokename").empty()
-    $("#pokename").append(speciesCurrent.flavor_text_entries.find(x => x.language.name === 'en').flavor_text)
-    responsiveVoice.speak(speciesCurrent.flavor_text_entries.find(x => x.language.name === 'en').flavor_text.toString())
+    if(typeof speciesCurrent != "undefined"){
+        $("#pokename").append('<p>'+speciesCurrent.flavor_text_entries.find(x => x.language.name === 'en').flavor_text)
+        responsiveVoice.speak(speciesCurrent.flavor_text_entries.find(x => x.language.name === 'en').flavor_text.toString()+'</p>')
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
+    }
 })
 
 $("#button-4").on("click", function(){
     $("#pokename").empty()
-    $("#pokename").append("<h5>Appearance</h5><br>")
-    $("#pokename").append("<p>Color: "+toUpper(speciesCurrent.color.name)+"</p>")
-    $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
-    responsiveVoice.speak(pokeCurrent.name.toString() +"'s appearance is the color " + speciesCurrent.color.name.toString() + ", and the shape " + speciesCurrent.shape.name.toString())
-})
-$("#button-5").on("click", function(){
-    console.log(pokeCurrent.species.url);
-    
-    $.ajax({
-        url: pokeCurrent.species.url,
-        method: "GET"
-    }).then(function(response){
-        $.ajax({
-            url: response.evolution_chain.url,
-            method: "GET"
-        }).then(function(response){
-            console.log(response);
-            
-            console.log(response.chain.species.name);
-            
-        })
-        
-    })
+    if(typeof speciesCurrent != "undefined"){
+        $("#pokename").append("<h5>Appearance</h5><br>")
+        $("#pokename").append("<p>Color: "+toUpper(speciesCurrent.color.name)+"</p>")
+        $("#pokename").append("<p>Shape: "+toUpper(speciesCurrent.shape.name)+"</p>")
+        responsiveVoice.speak(pokeCurrent.name.toString() +"'s appearance is the color " + speciesCurrent.color.name.toString() + ", and the shape " + speciesCurrent.shape.name.toString())
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
+    }
 })
 
 $("#button-5").on("click", function(){
-    var evolList = []
-    $("#pokename").empty()
-    $("#pokename").append("<h5>Evolution Tree</h5><br>")
-    $.ajax({
-        url: speciesCurrent.evolution_chain.url,
-        method: "GET"
-    }).then(function(response) {
-        var chain = response.chain
-        $("#pokename").append("<p>"+toUpper(chain.species.name)+"</p>")
-        evolList.push(chain.species.name)
-        while(typeof chain.evolves_to[0] != 'undefined'){
-            $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
-            evolList.push(chain.evolves_to[0].species.name)
-            chain = chain.evolves_to[0]
-            console.log(evolList)
-        }
-    })
-    // responsiveVoice.speak(pokeCurrent.name.toString() +"'s evolutions are " + evolList.toString())
+    if(typeof speciesCurrent != "undefined"){
+        var evolList = ''
+        $("#pokename").empty()
+        $("#pokename").append("<h5>Evolution Tree</h5><br>")
+        $.ajax({
+            url: speciesCurrent.evolution_chain.url,
+            method: "GET"
+        }).then(function(response) {
+            var chain = response.chain
+            $("#pokename").append("<p>"+toUpper(chain.species.name)+"</p>")
+            evolList += chain.species.name+' '
+            while(typeof chain.evolves_to[0] != 'undefined'){
+                $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
+                evolList += chain.evolves_to[0].species.name+' '
+                chain = chain.evolves_to[0]
+                console.log(evolList)
+            }
+            responsiveVoice.speak(pokeCurrent.name.toString() +"'s evolutions are " + evolList)
+        })
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
+    }
 })
 
 $("#button-15").on("click", function() {
