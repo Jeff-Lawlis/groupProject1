@@ -1,0 +1,337 @@
+ body, html {
+font-family: "Press Start 2P", cursive;
+}
+
+body { 
+    background-color:#FB1010; 
+    height:100%;
+}
+
+.container {
+    height:100%;
+    width:100%;
+    padding-top: 10px;
+    display:flex;
+    
+} 
+
+button {
+    font-size: .9rem
+}
+
+/* Left side of pokedex */
+.left-column{
+    width:50%;
+    justify-content: flex-start;
+}
+.right-column{
+   width:50%;
+    border-left: 5px solid black;
+    justify-content: flex-end;
+}
+/* the called image */
+#sprite {
+z-index: 100;
+height: 100%;
+position:relative;
+margin: auto;
+image-rendering: pixelated; /* keeps image from getting blurry */
+width: 100%;
+}
+
+/* Search list items */
+.listItem {
+    border: 20px, 0 solid #6d7876;
+    background-color:#6d7876;
+    padding: 0;
+}
+
+/* div containing image */
+#pokeimage {
+    width:100%;
+    height:300px;
+    border: solid 20px #DAE3E0;
+    box-shadow: 1px 1px 5px grey;
+    background-color:#49514F;
+    border-radius:30px;
+    text-align:center;
+    padding: 5px;
+    color:black;
+    }
+
+/* form that contains go button and user input */
+#pokeform {
+    margin: 0 auto;
+    margin-right:200px;
+    margin-left:150px;
+    margin-top:100px;
+    width:50px;
+}
+
+/* go button to call pokemon */
+.d-pad-container{
+    position: relative;
+    float: right;
+    height: 100px;
+    width: 100px;
+}
+#d-pad{
+    position: absolute;
+    left: 10px;
+}
+#d-pad-up{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 47%;
+    height: 25px;
+    width: 25px;
+}
+#d-pad-down{
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: 47%;
+    height: 25px;
+    width: 25px;
+}
+#d-pad-left{
+    position: absolute;
+    opacity: 0;
+    bottom: 40%;
+    left: 15px;
+    height: 25px;
+    width: 25px;
+}
+#d-pad-right{
+    position: absolute;
+    opacity: 0;
+    bottom: 40%;
+    right: -5px;
+    height: 25px;
+    width: 25px;
+}
+#goButton {
+    box-shadow: 1px 1px 15px 1px #045B41 inset;
+    background-color:#067855;
+     margin-top:-275px; 
+    margin-left:-240px;
+    width:70px;
+    height:70px;
+    border-radius: 50%;
+    position: absolute;
+    border: 4px solid black;
+    outline:none;
+
+}
+
+#goButton:hover {
+    background-color: #459E80;
+    outline: none;
+}
+
+#goButton:active {
+    background-color: #459E80;
+    box-shadow: 0 2px black;
+    transform: translateY(4px);
+    outline: none;
+}
+
+/* User input */
+#pokeInput {
+    position:relative;
+    height: 80px;
+    width:275px;
+    margin-left: -150%;
+    margin-top:130%;
+    background-color: #91CDA7;
+    border: 4px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Right side of pokedex */
+
+/* div that contains the information */
+#pokename {
+    width:100%;
+    height:300px;
+    border: solid 10px black;
+    text-align:center;
+    color:white;
+    box-shadow: 1px 1px 5px grey;
+    background-color:#49514F;
+    padding:20px;
+    font-size: 20px;
+    overflow:hidden
+}
+
+/* Blue buttons */
+#button-1, #button-2, #button-3, #button-4, #button-5, #button-6, #button-7, #button-8, #button-9, #button-10 {
+width:20%;
+height:70px;
+box-shadow: 1px 1px 5px #80D4F9 inset;
+background-color:#3EC0F7;
+display: inline-block;
+position:relative;
+border: 4px solid black;
+}
+
+#button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover {
+    background-color: #80D4F9;
+    outline: none;
+}
+
+#button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active, #button-6:active, #button-7:active, #button-8:active, #button-9:active, #button-10:active {
+    background-color: #80D4F9;
+    box-shadow: 0 2px black;
+    transform: translateY(2px);
+    outline: none;
+}
+
+/* #button-11, #button-12 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:20%;
+    height:70px;
+    /*display: inline-block;*/
+    /* border: 4px solid black;
+    margin-top:100px; 
+} */
+
+#button-15 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-left: auto;
+   
+}
+
+.row3 {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 1%;
+}
+
+#light-2 {
+    border: 4px solid black;
+    box-shadow: 1px 1px 5px inset;
+    display: inline-flex;
+    width:20%;
+    height:20px;
+    color:black;
+    background-color: yellow;
+    flex: 0 1 auto;
+   
+}
+
+#light-1 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:20%;
+    height:20px;
+    border: 4px solid black;
+    color:black;
+    background-color: purple;
+    flex: 0 1 auto;
+}
+
+
+#button-13, #button-14  {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:20%;
+    height:70px;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top:100px;
+   
+   
+}
+
+
+#button-16 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:40%;
+    height:70px;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top: 150px;
+}
+
+#button-17 {
+    box-shadow: 1px 1px 5px inset;
+    position:relative;
+    width:40%;
+    height:70px;
+    /*display: inline-block;*/
+    border: 4px solid black;
+    margin-top:-70px;
+    margin-left: 350px;
+}
+
+#gifImage {
+    width:100%;
+    height:100%;
+    border:solid black 8px;
+}
+
+img {
+    width:100%;
+    height:100%;
+
+    
+
+}
+
+@media only screen and (max-width: 640px) {
+    #container {
+        width: 80%;
+        display:flex;
+        flex-direction: column;
+        
+    }
+    /* Left side of pokedex */
+.left-column{
+    flex-direction:row;
+    width:100%;
+    /* border-right: 5px solid black; */
+}
+.right-column{
+    flex-direction: row-reverse;
+    width: 100%;
+
+    /* border-left: 5px solid black; */
+}
+}
+/* media queries */
+@media only screen and (min-width: 769) and (max-width: 980px) {
+    #container {
+        width:100%;
+    }
+}
+
+@media only screen and (min-width: 641) and (max-width: 768px) {
+    
+
+    #container {
+        width: 100%;
+    }
+
+}
+
+/* Javascript stuff */
+.info-scroll{
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
