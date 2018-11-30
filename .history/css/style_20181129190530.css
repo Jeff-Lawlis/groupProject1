@@ -58,8 +58,6 @@ width: 100%;
     text-align:center;
     padding: 5px;
     color:black;
-    object-fit: contain;
-    overflow:hidden;
     }
 
 /* form that contains go button and user input */

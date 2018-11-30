@@ -58,8 +58,6 @@ width: 100%;
     text-align:center;
     padding: 5px;
     color:black;
-    object-fit: contain;
-    overflow:hidden;
     }
 
 /* form that contains go button and user input */
@@ -170,9 +168,7 @@ width: 100%;
     background-color:#49514F;
     padding:20px;
     font-size: 20px;
-    object-fit: contain;
-    overflow:hidden;
-    
+    overflow:hidden
 }
 
 /* Blue buttons */
@@ -186,8 +182,6 @@ position:relative;
 border: 4px solid black;
 overflow:hidden;
 margin-top:5%;
-padding: 10px;
-text-align: center;
 }
 
 #button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover {
@@ -213,7 +207,7 @@ text-align: center;
 } */
 
 #button-15 {
-    box-shadow: 1px 1px 5px rgb(236, 172, 52) inset;
+    box-shadow: 1px 1px 5px oinset;
     position:relative;
     width:70px;
     height:70px;
@@ -224,18 +218,6 @@ text-align: center;
     margin-top:5%;
     background-color: orange;
    
-}
-
-#button-15:hover {
-    background-color: rgb(245, 188, 81);
-    outline: none;  
-}
-
-#button-15:active {
-    background-color: rgb(245, 188, 81);
-    box-shadow: 0 2px black;
-    transform: translateY(2px);
-    outline: none;
 }
 
 .row3 {
@@ -302,10 +284,9 @@ text-align: center;
 }
 
 #gifImage {
-    width: 350px; 
-    
-    position: relative;
-    object-fit: contain;
+    width:100%;
+    height:100%;
+    border:solid black 8px;
 }
 
 img {
@@ -359,7 +340,7 @@ img {
 .right-column{
     flex-direction:flex-end;
     justify-content: center;
-  margin-left: 100px;
+  margin-left: 110px;
 }
 }
 
