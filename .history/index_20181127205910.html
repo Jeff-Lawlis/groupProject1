@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./sassy/main.css"> -->
+    <title>Pokedex Page</title>
+</head>
+<body>
+        <div class="container">
+            <!-- <br><br></br> -->
+            <div class="row">
+
+            <!-- Left side information -->
+
+            <!-- Where the image shows -->
+                <div class="col-6">
+                       <div id="pokeimage"></div>
+                    <br><br>
+                    
+                    <button id="up">Up</button>
+                    <button id="right">Right</button>
+                    <button id="down">Down</button>
+                    <button id="left">Left</button>
+                <!-- User input and go button -->
+                <form id="pokeform">
+                    
+                <input id="pokeInput" placeholder="Name of Pokemon!"/>
+                
+                <button id ="goButton"type=submit>GO!</button>
+              </form>
+              
+              
+              </div>
+
+            <!-- Right side information -->
+            <div class="col-6">
+                <div id="pokename"></div>
+
+                <!-- tiny lights -->
+                <div class="row3">
+                    <button id="light-1"></button>
+                    <button id="light-2"></button>
+                    <br>
+                </div>
+
+                <!-- Blue buttons -->
+                <div class="row">
+                    <button class="blue" type=submit id="button-1">#</button>
+                    <button class="blue" type=submit  id="button-2">Type</button>
+                    <button class="blue" type=submit  id="button-3">Bio</button>
+                    <button class="blue" type=submit  id="button-4">Looks</button>
+                    <button class="blue" type=submit  id="button-5"></button>
+                </div>
+                <div class="row">
+                    <button class="blue" type=submit  id="button-6"></button>
+                    <button class="blue" type=submit  id="button-7"></button>
+                    <button class="blue" type=submit  id="button-8"></button>
+                    <button class="blue" type=submit  id="button-9"></button>
+                    <button class="blue" type=submit  id="button-10"></button>
+                </div>
+
+                
+               <!-- more buttons -->
+                <div class="row">
+                    <input id="button-13"type="button" value="PLAY" onclick="play()"><audio id="audio" src="assets/audio/Pokemon.mp3" ></audio>
+                    <input id= "button-14"type="button" value="PAUSE" onclick="play()"><audio id="audio" src="assets/audio/Pokemon.mp3" ></audio>
+                    
+                    <button id="button-15">GIF</button>
+                </div>
+                <div class="row">
+                    <button id="button-16"></button>
+                    <button id="button-17"></button>
+                </div>
+            
+        </div>
+    </div>
+</div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+            <script src="./javascript/logic.js"></script>
+            <script src ="./javascript/voice.js"></script>
+        </body>
+<script>
+  
+</script>
+</html>
