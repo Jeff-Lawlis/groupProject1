@@ -2,6 +2,9 @@
   var pokeCurrent
   var speciesCurrent
 
+  
+responsiveVoice.setDefaultVoice("UK English Male", {pitch: 1});
+
 // Use this to capitalize strings
 function toUpper(str) {
 return str.toLowerCase().split(' ').map(function(word) {
@@ -88,13 +91,16 @@ $("#pokeimage").on('click', '.listItem', function(){
         $('#pokeimage').empty()
         $('#pokeimage').append(sprite);
 
+        var ch = $('#sprite').height();
+        $('#sprite').css({'width':ch+'px'});
+
     })
     $.ajax({
         url: "https://pokeapi.co/api/v2/pokemon-species/"+pokeDisplay+'/',
         method: "GET"
     }).then(function(response) {
         speciesCurrent = response
-    }) 
+    })
 })
 
 $("#button-1").on("click", function(){
