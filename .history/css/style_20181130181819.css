@@ -318,27 +318,27 @@ outline: none;
 
   @-webkit-keyframes blinkBlue {
     from { background-color: blue; }
-    50%{ background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
+    50% { background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
     to { background-color: blue; }
 }
 @-moz-keyframes blinkBlue {
     from { background-color: blue; }
-    50%{ background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
+    50% { background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
     to { background-color: blue; }
 }
 @-ms-keyframes blinkBlue {
     from { background-color: blue; }
-    50%{ background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
+    50% { background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
     to { background-color: blue; }
 }
 @-o-keyframes blinkBlue {
     from { background-color: blue; }
-    50%{ background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
+    50% { background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
     to { background-color: blue; }
 }
 @keyframes blinkBlue {
     from { background-color: blue; }
-    50%{ background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
+    50% { background-color: #3809F3; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #0528B0 0 -1px 9px, #0A30C6 0 0px 0;}
     to { background-color: blue; }
 }
 
