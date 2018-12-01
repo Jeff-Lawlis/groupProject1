@@ -10,9 +10,6 @@ p{
 body { 
     background-color:#FB1010; 
     height:100%;
-    background-image: linear-gradient(to bottom right,#FB1010, red,#DF0909,#C60909);
-    background-image: linear-gradient(to right,#FB1010, red,#DF0909,#C60909);
-    /* background-image: linear-gradient(to left,#FB1010, red,#DF0909,#C60909); */
 }
 
 .container {
@@ -146,7 +143,7 @@ width: 100%;
 
 #goButton:active {
     background-color: #459E80;
-    box-shadow: 2px 2px black;
+    box-shadow: 0 2px black;
     transform: translateY(4px);
     outline: none;
 }
@@ -201,15 +198,15 @@ background-image: linear-gradient(to bottom right,#78DEF7, #80D4F9 ,#3EC0F7, #18
 outline: none;
 }
 
-#button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover {
+#button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, {
     background-color: #80D4F9;
     background-image: linear-gradient(to bottom right,#78DEF7, #80D4F9);
     outline: none;
 }
 
-#button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active {
+#button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active, {
     background-color: #80D4F9;
-    box-shadow: 2px 2px black;
+    box-shadow: 0 2px black;
     transform: translateY(2px);
     outline: none;
 }
@@ -238,12 +235,19 @@ outline: none;
 
 #button-15:active {
     background-color: rgb(245, 188, 81);
-    box-shadow: 2px 2px black;
+    box-shadow: 0 2px black;
     transform: translateY(2px);
     outline: none;
 }
 
 /* music buttons */
+#button-13, #button-14 {
+    outline: none;
+}
+
+#button-13:active, #button-14:active {
+    box-shadow: 0 2px black;
+}
 
 .row3 {
     width: 100%;
@@ -341,7 +345,7 @@ outline: none;
 }
 
 
-/* music buttons */
+
 
 #button-13, #button-14  {
     box-shadow: 1px 1px 5px inset;
@@ -350,15 +354,10 @@ outline: none;
     height:70px;
     border: 4px solid black;
     margin-top:100px;
-    outline: none;
-}
-
-#button-13:active, #button-14:active {
-    box-shadow: 2px 2px black;
 }
 
 
-/* #button-16 {
+#button-16 {
     box-shadow: 1px 1px 5px inset;
     position:relative;
     width:40%;
@@ -375,7 +374,7 @@ outline: none;
     border: 4px solid black;
     margin-top:-70px;
     margin-left: 350px;
-} */
+}
 
 #gifImage {
     width: 350px; 
