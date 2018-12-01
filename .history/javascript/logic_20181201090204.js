@@ -3,7 +3,7 @@
   var speciesCurrent
 
   
-responsiveVoice.setDefaultVoice("UK English Male", {pitch: 1});
+responsiveVoice.setDefaultVoice("US English Male", {pitch: 1});
 
 // Use this to capitalize strings
 function toUpper(str) {

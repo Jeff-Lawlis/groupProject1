@@ -374,7 +374,7 @@ function play() {
 }
 
 function stop(){
-    var audio = document.getElementById('audio');
+    var audio = document.getElementById('audio2');
     audio.pause();
     audio.currentTime = 0
 }
