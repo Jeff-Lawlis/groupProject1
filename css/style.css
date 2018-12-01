@@ -182,7 +182,7 @@ width: 100%;
 }
 
 /* Blue buttons */
-#button-1, #button-2, #button-3, #button-4, #button-5, #button-6, #button-7, #button-8, #button-9, #button-10 {
+#button-1, #button-2, #button-3, #button-4, #button-5, #button-6, #button-7, #button-8, #button-9, #button-10, #button-21, #button-22  {
 width:20%;
 height:70px;
 box-shadow: 1px 1px 5px #80D4F9 inset;
@@ -197,13 +197,16 @@ text-align: center;
 background-image: linear-gradient(to bottom right,#78DEF7, #80D4F9 ,#3EC0F7, #18C9F6, #0ABBE8);
 outline: none;
 }
+#button-22, #button-21{
+    width: 50%;
+}
 
-#button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover {
+#button-1:hover, #button-2:hover, #button-3:hover, #button-4:hover, #button-5:hover, #button-6:hover, #button-7:hover, #button-8:hover, #button-9:hover, #button-10:hover, #button-21:hover, #button-22:hover  {
     background-color: #80D4F9;
     outline: none;
 }
 
-#button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active, #button-6:active, #button-7:active, #button-8:active, #button-9:active, #button-10:active {
+#button-1:active, #button-2:active, #button-3:active, #button-4:active, #button-5:active, #button-6:active, #button-7:active, #button-8:active, #button-9:active, #button-10:active, #button-21:active, #button-22:active {
     background-color: #80D4F9;
     box-shadow: 0 2px black;
     transform: translateY(2px);

@@ -1,8 +1,25 @@
   var pokeToSearch
   var pokeCurrent
   var speciesCurrent
-
-  
+  var typedata = [{"name":"Normal","immunes":["Ghost"],"weaknesses":["Rock","Steel"],"strengths":[]},
+  {"name":"Fire","immunes":[],"weaknesses":["Fire","Water","Rock","Dragon"],"strengths":["Grass","Ice","Bug","Steel"]},
+  {"name":"Water","immunes":[],"weaknesses":["Water","Grass","Dragon"],"strengths":["Fire","Ground","Rock"]},
+  {"name":"Electric","immunes":["Ground"],"weaknesses":["Electric","Grass","Dragon"],"strengths":["Water","Flying"]},
+  {"name":"Grass","immunes":[],"weaknesses":["Fire","Grass","Poison","Flying","Bug","Dragon","Steel"],"strengths":["Water","Ground","Rock"]},
+  {"name":"Ice","immunes":[],"weaknesses":["Fire","Water","Ice","Steel"],"strengths":["Grass","Ground","Flying","Dragon"]},
+  {"name":"Fighting","immunes":["Ghost"],"weaknesses":["Poison","Flying","Psychic","Bug","Fairy"],"strengths":["Normal","Ice","Rock","Dark","Steel"]},
+  {"name":"Poison","immunes":["Steel"],"weaknesses":["Poison","Ground","Rock","Ghost"],"strengths":["Grass","Fairy"]},
+  {"name":"Ground","immunes":["Flying"],"weaknesses":["Grass","Bug"],"strengths":["Fire","Electric","Poison","Rock","Steel"]},
+  {"name":"Flying","immunes":[],"weaknesses":["Electric","Rock","Steel"],"strengths":["Grass","Fighting","Bug"]},
+  {"name":"Psychic","immunes":["Dark"],"weaknesses":["Psychic","Steel"],"strengths":["Fighting","Poison"]},
+  {"name":"Bug","immunes":[],"weaknesses":["Fire","Fighting","Poison","Flying","Ghost","Steel","Fairy"],"strengths":["Grass","Psychic","Dark"]},
+  {"name":"Rock","immunes":[],"weaknesses":["Fighting","Ground","Steel"],"strengths":["Fire","Ice","Flying","Bug"]},
+  {"name":"Ghost","immunes":["Normal"],"weaknesses":["Dark"],"strengths":["Psychic","Ghost"]},
+  {"name":"Dragon","immunes":["Fairy"],"weaknesses":["Steel"],"strengths":["Dragon"]},
+  {"name":"Dark","immunes":[],"weaknesses":["Fighting","Dark","Fairy"],"strengths":["Psychic","Ghost"]},
+  {"name":"Steel","immunes":[],"weaknesses":["Fire","Water","Electric","Steel"],"strengths":["Ice","Rock","Fairy"]},
+  {"name":"Fairy","immunes":[],"weaknesses":["Fire","Poison","Steel"],"strengths":["Fighting","Dragon","Dark"]}];
+var typecompare;
 responsiveVoice.setDefaultVoice("UK English Male", {pitch: 1});
 
 // Use this to capitalize strings
@@ -363,6 +380,72 @@ $("#d-pad-left").on("click", function() {
         $('.sprite').css({'width':ch+'px'});
     }
 })
+
+$("#button-21").on("click", function() {
+    $("#pokename").empty()
+    
+    if(typeof speciesCurrent != "undefined"){
+        $("#pokename").append("<p> Weaknesses: </p>")
+        for(var i = 0; i < pokeCurrent.types.length; i++){
+            var typeSpan = $("<p>"+toUpper(pokeCurrent.types[i].type.name)+"</p>")
+            for(z = 0; z < typedata.length; z++){
+               console.log(pokeCurrent.types[i].type.name);
+                if(pokeCurrent.types[i].type.name.toLowerCase() === typedata[z].name.toLowerCase()){
+                    for(s = 0; s < typedata[z].weaknesses.length; s++){
+                    $("#pokename").append("<p>" + typedata[z].weaknesses[s] + "</p>")
+                    typecompare = typedata[z].weaknesses;
+                    }
+                }
+            }
+           
+                if(i == 0){
+                responsiveVoice.speak("It's weaknesses are " + typecompare)
+                }
+                else{
+                    responsiveVoice.speak("and " + typecompare)
+                }
+           
+                
+            
+        }
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
+    }
+})
+
+$("#button-22").on("click", function() {
+    $("#pokename").empty()
+    
+    if(typeof speciesCurrent != "undefined"){
+        $("#pokename").append("<p> Strengths: </p>")
+        for(var i = 0; i < pokeCurrent.types.length; i++){
+            var typeSpan = $("<p>"+toUpper(pokeCurrent.types[i].type.name)+"</p>")
+            for(z = 0; z < typedata.length; z++){
+               console.log(pokeCurrent.types[i].type.name);
+                if(pokeCurrent.types[i].type.name.toLowerCase() === typedata[z].name.toLowerCase()){
+                    for(s = 0; s < typedata[z].strengths.length; s++){
+                    $("#pokename").append("<p>" + typedata[z].strengths[s] + "</p>")
+                    typecompare = typedata[z].strengths;
+                    }
+                }
+            }
+           
+           
+            if(i == 0){
+                responsiveVoice.speak("It's strengths are " + typecompare)
+                }
+                else{
+                    responsiveVoice.speak("and " + typecompare)
+                }
+           
+                
+            
+        }
+    }else{
+        $("#pokename").append("<h5>Select a Pokemon!</h5><br>")
+    }
+})
+
 
 function play() {
     var audio = document.getElementById('audio');
