@@ -55,8 +55,6 @@ $("#goButton").on("click", function(e){
         for(i=0;i<response.count;i++){
             if(response.results[i].name.toLowerCase().indexOf(pokeToSearch.toLowerCase()) !== -1){
 
-                console.log(response.results[i])
-
                 var listItem = document.createElement('p');
                 listItem.className = 'listItem';
                 listItem.id = response.results[i].name;
@@ -74,12 +72,10 @@ $("#goButton").on("click", function(e){
 // Displays sprite, deletes search results
 $("#pokeimage").on('click', '.listItem', function(){
     var pokeDisplay = this.id
-    console.log(pokeDisplay)
     $.ajax({
         url: "https://pokeapi.co/api/v2/pokemon/"+pokeDisplay+"/",
         method: "GET"
     }).then(function(response) {
-        console.log(response);
         
         pokeCurrent = response
         $("#pokename").empty()
@@ -87,12 +83,13 @@ $("#pokeimage").on('click', '.listItem', function(){
 
         var sprite = document.createElement('img')
         sprite.src = response.sprites.front_default
-        sprite.id = 'sprite'
+        sprite.className = 'sprite'
+        sprite.id = 'front_default'
         $('#pokeimage').empty()
         $('#pokeimage').append(sprite);
 
-        var ch = $('#sprite').height();
-        $('#sprite').css({'width':ch+'px'});
+        var ch = $('.sprite').height();
+        $('.sprite').css({'width':ch+'px'});
 
     })
     $.ajax({
@@ -169,7 +166,6 @@ $("#button-5").on("click", function(){
                 $("#pokename").append("<p>"+toUpper(chain.evolves_to[0].species.name)+"</p>")
                 evolList += chain.evolves_to[0].species.name+' '
                 chain = chain.evolves_to[0]
-                console.log(evolList)
             }
             responsiveVoice.speak(pokeCurrent.name.toString() +"'s evolutions are " + evolList)
         })
@@ -179,27 +175,194 @@ $("#button-5").on("click", function(){
 })
 
 $("#button-15").on("click", function() {
-    $("#pokeimage").empty();
-    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag="+pokeCurrent.name;
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
+    if($('.sprite').length){
+        $("#pokeimage").empty();
+        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=1Ap9PRfNxbH1S8pDXRJkIkh2mwOKmiPR&tag="+pokeCurrent.name;
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+        
+            var imageUrl = response.data.image_original_url;
+            var pokeGif = $("<img>");
 
-    .then(function(response) {
-    
-    var imageUrl = response.data.image_original_url;
+            pokeGif.attr("src", imageUrl);
+            pokeGif.attr("alt", "pokemon GIF image");
+            pokeGif.attr('id','gifImage')
 
-    var pokeGif = $("<img>");
+            $("#pokeimage").prepend(pokeGif);
+        })
+    }else{
+        $("#pokeimage").empty();
+        
+        var sprite = document.createElement('img')
+        sprite.src = poke.sprites.front_default
+        sprite.className = 'sprite'
+        sprite.id = 'front_default'
+        $('#pokeimage').empty()
+        $('#pokeimage').append(sprite);
 
-    pokeGif.attr("src", imageUrl);
-    pokeGif.attr("alt", "pokemon GIF image");
-    pokeGif.attr('id','gifImage')
+        var ch = $('.sprite').height();
+        $('.sprite').css({'width':ch+'px'});
+    }
+})
 
-    $("#pokeimage").prepend(pokeGif);
-    console.log(pokeGif);
-    });
-});
+$("#d-pad-up").on("click", function() {
+    if($('.sprite').length){
+        var sprite = document.createElement('img')
+        sprite.className = 'sprite'
+        if($('.sprite').attr('id') =='front_default'){
+            sprite.src = pokeCurrent.sprites.front_shiny
+            sprite.id = 'front_shiny'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='front_shiny'){
+            sprite.src = pokeCurrent.sprites.front_default
+            sprite.id = 'front_default'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='front_female'){
+            sprite.src = pokeCurrent.sprites.front_shiny_female
+            sprite.id = 'front_shiny_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='front_shiny_female'){
+            sprite.src = pokeCurrent.sprites.front_female
+            sprite.id = 'front_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }if($('.sprite').attr('id') =='back_default'){
+            sprite.src = pokeCurrent.sprites.back_shiny
+            sprite.id = 'front_shiny'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='back_shiny'){
+            sprite.src = pokeCurrent.sprites.back_default
+            sprite.id = 'front_default'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='back_female'){
+            sprite.src = pokeCurrent.sprites.back_shiny_female
+            sprite.id = 'front_shiny_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='back_shiny_female'){
+            sprite.src = pokeCurrent.sprites.back_female
+            sprite.id = 'front_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }
+        var ch = $('.sprite').height();
+        $('.sprite').css({'width':ch+'px'});
+    }
+})
+
+$("#d-pad-down").on("click", function() {
+    if($('.sprite').length){
+        var sprite = document.createElement('img')
+        sprite.className = 'sprite'
+        if($('.sprite').attr('id') =='front_default'){
+            if(!!pokeCurrent.sprites.front_female){
+                sprite.src = pokeCurrent.sprites.front_female
+                sprite.id = 'front_female'
+                $('#pokeimage').empty()
+                $('#pokeimage').append(sprite);
+            }
+        }else if($('.sprite').attr('id') =='front_shiny'){
+            if(!!pokeCurrent.sprites.front_female){
+                sprite.src = pokeCurrent.sprites.front_shiny_female
+                sprite.id = 'front_shiny_female'
+                $('#pokeimage').empty()
+                $('#pokeimage').append(sprite);
+            }
+        }else if($('.sprite').attr('id') =='front_female'){
+            sprite.src = pokeCurrent.sprites.front_default
+            sprite.id = 'front_default'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }else if($('.sprite').attr('id') =='front_shiny_female'){
+            sprite.src = pokeCurrent.sprites.front_shiny
+            sprite.id = 'front_shiny'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }if($('.sprite').attr('id') =='back_default'){
+            if(pokeCurrent.sprites.front_female != 'null'){
+                sprite.src = pokeCurrent.sprites.back_female
+                sprite.id = 'back_female'
+                $('#pokeimage').empty()
+                $('#pokeimage').append(sprite);
+            }
+        }else if($('.sprite').attr('id') =='back_shiny'){
+            if(!!pokeCurrent.sprites.front_female){
+                sprite.src = pokeCurrent.sprites.back_shiny_female
+                sprite.id = 'back_shiny_female'
+                $('#pokeimage').empty()
+                $('#pokeimage').append(sprite);
+            }
+        }else if($('.sprite').attr('id') =='back_female'){
+            if(pokeCurrent.sprites.front_female != 'null'){
+                sprite.src = pokeCurrent.sprites.back_default
+                sprite.id = 'back_default'
+                $('#pokeimage').empty()
+                $('#pokeimage').append(sprite);
+            }
+        }else if($('.sprite').attr('id') =='back_shiny_female'){
+            sprite.src = pokeCurrent.sprites.back_shiny
+            sprite.id = 'back_shiny'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(sprite);
+        }
+        var ch = $('.sprite').height();
+        $('.sprite').css({'width':ch+'px'});
+    }
+})
+
+// A more efficient method would be to scan for front_ and back_ and switch them
+$("#d-pad-left").on("click", function() {
+    if($('.sprite').length){
+        var l = document.createElement('img')
+        l.className = 'sprite'
+        if($('.sprite').attr('id') =='front_default'){
+            $(".sprite").attr("src", pokeCurrent.sprites.back_default)
+            $(".sprite").attr("id", 'back_default')
+        }else if($('.sprite').attr('id') =='front_shiny'){
+            l.src = pokeCurrent.sprites.back_shiny
+            l.id = 'back_shiny'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(l);
+        }else if($('.sprite').attr('id') =='front_female'){
+            l.src = pokeCurrent.sprites.back_female
+            l.id = 'back_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(l);
+        }else if($('.sprite').attr('id') =='front_shiny_female'){
+            l.src = pokeCurrent.sprites.back_shiny_female
+            l.id = 'back_shiny_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(l);
+        }if($('.sprite').attr('id') =='back_default'){
+            $(".sprite").attr("src", pokeCurrent.sprites.front_default)
+            $(".sprite").attr("id", 'front_default')
+        }else if($('.sprite').attr('id') =='back_shiny'){
+            l.src = pokeCurrent.sprites.front_shiny
+            l.id = 'front_shiny'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(l);
+        }else if($('.sprite').attr('id') =='back_female'){
+            l.src = pokeCurrent.sprites.front_female
+            l.id = 'front_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(l);
+        }else if($('.sprite').attr('id') =='back_shiny_female'){
+            l.src = pokeCurrent.sprites.front_shiny_female
+            l.id = 'front_shiny_female'
+            $('#pokeimage').empty()
+            $('#pokeimage').append(l);
+        }
+        var ch = $('.sprite').height();
+        $('.sprite').css({'width':ch+'px'});
+    }
+})
 
 function play() {
     var audio = document.getElementById('audio');
